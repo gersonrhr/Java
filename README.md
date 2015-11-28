@@ -54,8 +54,17 @@ Integer.parseInt();
 
 
 
-
-
+//Validacion de Fecha
+public static boolean isFechaValida(String fecha) {
+        try {
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+        } catch (ParseException e) {
+            return false;
+        }
+        return true;
+    }
 
 
 
