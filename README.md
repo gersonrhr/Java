@@ -48,6 +48,9 @@ if(Character.isDigit(c) || c =='.'|| c ==','|| c =='-'|| c =='´'|| c =='ç'||c 
           }
 
 
+//String a integer
+Integer.parseInt();
+
 
 
 
