@@ -28,8 +28,8 @@ public void keyTyped(KeyEvent e) {
  }
 }
 
-//Evitar paste 
-InputMap map2 = txtUsuario.getInputMap(txtUsuario.WHEN_FOCUSED);
+//Evitar paste (en Keypressed)
+InputMap map2 = txtasd.getInputMap(txtasd.WHEN_FOCUSED);
 map2.put(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK), "null"); 
 
 
