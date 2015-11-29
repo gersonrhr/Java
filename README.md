@@ -51,7 +51,8 @@ if(Character.isDigit(c) || c =='.'|| c ==','|| c =='-'|| c =='´'|| c =='ç'||c 
 //String a integer
 Integer.parseInt();
 
-
+// int a String:
+String enteroString = Integer.toString(entero);
 
 
 //Validacion de Fecha
