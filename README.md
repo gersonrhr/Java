@@ -101,6 +101,26 @@ public static boolean isFechaValida(String fecha) {
 
 
 
+MAIN AL POM 
+
+<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>cl.boti.vistas.Principal</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+
 
 
 
