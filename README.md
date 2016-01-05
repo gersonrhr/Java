@@ -100,7 +100,7 @@ public static boolean isFechaValida(String fecha) {
 
 
 
-
+-----------------------------------------------------------------------------------------------------------------------
 MAIN AL POM 
 
 <build>
@@ -121,8 +121,63 @@ MAIN AL POM
 
 
 
+-------------------------------------------------------------------------------------------------------------------
+ boolean conectar() {
+        this.conectado = false;
+        try {
+            String url = "jdbc:mysql://localhost:3306/botilleria";
+            Properties props = new Properties();
+            props.setProperty("user", "root");
+            props.setProperty("password", "anon");
+           //props.setProperty("ssl", "true");
+            this.conexion = DriverManager.getConnection(url, props);
 
+            if (conexion != null) {
+                this.conectado = true;
+            } else {
+                this.conectado = false;
+            }
 
+            if (!conectado) {
+                throw new RuntimeException("No se puede conectar al motor de base de datos.");
+            }
+            
+        } catch (Exception e) {
+            this.conectado = false;
+        }
+        return conectado;
+    }
+
+    boolean desconectar() {
+        try {
+            if (conexion != null) {
+                conexion.close();
+                conexion = null;
+                conectado = false;
+            } else {
+                conectado = false;
+            }
+        } catch (Exception e) {
+            conexion = null;
+            conectado = false;
+        }
+        return conectado;
+    }
+
+    public boolean isConectado() {
+        return conectado;
+    }
+
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
+    }
+
+    @PreDestroy
+    public void finalizar() {
+        boolean desconectar = desconectar();
+    }
+
+}
 
 
 
