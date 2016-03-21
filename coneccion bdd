@@ -23,7 +23,7 @@ public class ConexionMySql {
 
 
 ------------------------------------------------------------
-//Guardar
+///////////////////////////Guardar
  String query="";
  ConexionMySql mysql=new ConexionMySql();
  Connection cn = mysql.Conectar();
@@ -51,3 +51,39 @@ public class ConexionMySql {
         }
         }
     
+-------------------------------------------------------------------------
+/////////////////////////Leer
+
+public void llenadotablas(String busqueda){
+           String datos;
+           String s="";
+           ConexionMySql mysql= new ConexionMySql();
+           Connection cn=mysql.Conectar();
+           s= "select comida from comidas '%" + busqueda + "%'";
+           Statement st;
+        try {
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(s);
+            while (rs.next()){
+            datos= rs.getString("comida");
+            modelo.addElement(datos);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Nuevo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
